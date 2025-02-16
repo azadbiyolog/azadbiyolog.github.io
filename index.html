@@ -96,8 +96,8 @@
                 let html = `
                     <h3>${ogrenci.isim}</h3>
                     <table>
-                        <tr><th>TC No</th><th>Toplam Deneme</th></tr>
-                        <tr><td>${ogrenci.tc}</td><td>${ogrenci.denemeSiralamasi}</td></tr>
+                        <tr><th>Sınıf Sıralaması</th><th>Okul sıralaması</th><th>İlçe sıralaması</th><th>Gnele sıralama</th></tr>
+                        <tr><td>${ogrenci.sinifSiralama}</td><td>${ogrenci.okulSiralama}</td></tr>
                     </table>
                 `;
 
@@ -106,7 +106,8 @@
                     html += `
                         <div class="deneme-baslik">Deneme ${index + 1}</div>
                         <table>
-                            <tr><th>Ders</th><th>Doğru</th><th>Yanlış</th><th>Boş</th></tr>
+				<tr>${deneme.sinifSiralama}</tr>
+                            <tr><th>Ders</th><th>Doğru</th><th>Yanlış</th><th>Net</th></tr>
                             <tr><td>Türkçe</td><td>${deneme.turkce.dogru}</td><td>${deneme.turkce.yanlis}</td><td>${deneme.turkce.bos}</td></tr>
                             <tr><td>Sosyal</td><td>${deneme.sosyal.dogru}</td><td>${deneme.sosyal.yanlis}</td><td>${deneme.sosyal.bos}</td></tr>
                             <tr><td>Matematik</td><td>${deneme.matematik.dogru}</td><td>${deneme.matematik.yanlis}</td><td>${deneme.matematik.bos}</td></tr>
