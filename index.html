@@ -41,7 +41,7 @@
 
             try {
                 // 2. Veri Çekme
-                const response = await fetch("WEB_APP_URL/exec?tc=" + encodeURIComponent(tc));
+                const response = await fetch("https://script.google.com/macros/s/AKfycbyAPlDCMRYIP9Wi19XgdzPugPQnOaT9MLN7dP6t_ukVheKeVxtTQWGz3eRU-G8_mqf51Q/exec?tc=" + encodeURIComponent(tc));
                 const result = await response.json();
 
                 // 3. Hata Kontrolü
