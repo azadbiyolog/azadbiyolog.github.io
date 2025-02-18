@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -17,6 +16,20 @@
         th { background: #3498db; color: white; }
         .error { color: #e74c3c; padding: 15px; text-align: center; }
         .info-box { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+        .loading { text-align: center; margin-top: 20px; font-size: 18px; color: #3498db; }
+        .spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top-color: #3498db;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -26,6 +39,10 @@
             <input type="text" id="tcInput" placeholder="TC Kimlik No (11 Haneli)" inputmode="numeric">
             <button onclick="sonuclariGoster()">Sonuçları Göster</button>
         </div>
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Yükleniyor...</p>
+        </div>
         <div id="sonuc"></div>
     </div>
 
@@ -33,24 +50,24 @@
         async function sonuclariGoster() {
             const tc = document.getElementById("tcInput").value.trim();
             const sonucDiv = document.getElementById("sonuc");
+            const loadingDiv = document.getElementById("loading");
             sonucDiv.innerHTML = "";
+            loadingDiv.style.display = "block";
 
-            // Validasyon
             if (!tc || tc.length !== 11 || isNaN(tc)) {
+                loadingDiv.style.display = "none";
                 sonucDiv.innerHTML = '<div class="error">❌ Geçerli bir TC girin!</div>';
                 return;
             }
 
             try {
-                // Veri Çek
                 const response = await fetch("https://script.google.com/macros/s/AKfycbyuvAL_FDjkqDX5MQJ6T2gorqwTRPww6ChMOSK8v-X8vkkpanCgyDmu2UzlSWg1PDXQpQ/exec?tc=" + encodeURIComponent(tc));
                 const result = await response.json();
+                loadingDiv.style.display = "none";
 
-                // Hata Kontrolü
                 if (result.error) {
                     sonucDiv.innerHTML = `<div class="error">⚠️ ${result.error}</div>`;
                 } else if (result.data && result.data.length > 0) {
-                    // Tüm Denemeleri Göster
                     let html = "";
                     result.data.forEach(deneme => {
                         html += `
@@ -79,6 +96,7 @@
                     sonucDiv.innerHTML = '<div class="error">⚠️ Kayıt bulunamadı!</div>';
                 }
             } catch (error) {
+                loadingDiv.style.display = "none";
                 sonucDiv.innerHTML = `<div class="error">⛔ Hata: ${error.message}</div>`;
             }
         }
