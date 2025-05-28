@@ -25,7 +25,13 @@
             border-radius: 50%;
             border-top-color: #3498db;
             animation: spin 1s linear infinite;
+            
         }
+        .tr-turkce    { background: #e8f1fc; }   /* Açık mavi */
+        .tr-sosyal    { background: #f1f8e8; }   /* Açık yeşil */
+        .tr-matematik { background: #fff5e5; }   /* Açık turuncu */
+        .tr-fen       { background: #fbeffb; }   /* Açık mor-pembe */
+        .tr-genel     { background: #f4f6fa; }   /* Açık gri-mavi */
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -80,14 +86,14 @@
                                     <p>🌆 İlçe: ${deneme.info.ilce}</p>
                                     <p>🌍 Genel: ${deneme.info.genel}</p>
                                 </div>
-                                <table>
-                                    <tr><th>Ders</th><th>Doğru</th><th>Yanlış</th><th>Net</th></tr>
-                                    <tr><td>Türkçe</td><td>${deneme.dersler.turkce[0]}</td><td>${deneme.dersler.turkce[1]}</td><td>${deneme.dersler.turkce[2]}</td></tr>
-                                    <tr><td>Sosyal</td><td>${deneme.dersler.sosyal[0]}</td><td>${deneme.dersler.sosyal[1]}</td><td>${deneme.dersler.sosyal[2]}</td></tr>
-                                    <tr><td>Matematik</td><td>${deneme.dersler.matematik[0]}</td><td>${deneme.dersler.matematik[1]}</td><td>${deneme.dersler.matematik[2]}</td></tr>
-                                    <tr><td>Fen</td><td>${deneme.dersler.fen[0]}</td><td>${deneme.dersler.fen[1]}</td><td>${deneme.dersler.fen[2]}</td></tr>
-                                    <tr><td>Genel</td><td>${deneme.dersler.genel[0]}</td><td>${deneme.dersler.genel[1]}</td><td>${deneme.dersler.genel[2]}</td></tr>
-                                </table>
+                                    <table>
+                                        <tr><th>Ders</th><th>Doğru</th><th>Yanlış</th><th>Boş</th></tr>
+                                        <tr class="tr-turkce"><td>Türkçe</td><td>${deneme.dersler.turkce[0]}</td><td>${deneme.dersler.turkce[1]}</td><td>${deneme.dersler.turkce[2]}</td></tr>
+                                        <tr class="tr-sosyal"><td>Sosyal</td><td>${deneme.dersler.sosyal[0]}</td><td>${deneme.dersler.sosyal[1]}</td><td>${deneme.dersler.sosyal[2]}</td></tr>
+                                        <tr class="tr-matematik"><td>Matematik</td><td>${deneme.dersler.matematik[0]}</td><td>${deneme.dersler.matematik[1]}</td><td>${deneme.dersler.matematik[2]}</td></tr>
+                                        <tr class="tr-fen"><td>Fen</td><td>${deneme.dersler.fen[0]}</td><td>${deneme.dersler.fen[1]}</td><td>${deneme.dersler.fen[2]}</td></tr>
+                                        <tr class="tr-genel"><td>Genel</td><td>${deneme.dersler.genel[0]}</td><td>${deneme.dersler.genel[1]}</td><td>${deneme.dersler.genel[2]}</td></tr>
+                                    </table>
                             </div>
                         `;
                     });
