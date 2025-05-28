@@ -61,7 +61,7 @@
             }
 
             try {
-                const response = await fetch("https://script.google.com/macros/s/AKfycbzaJqFSjdNmPJ9HCnqxtQx4GkWATKvkzXxOb08H82y32Gp08OG54W3A0ASzxGBQI4GbbQ/exec?tc=" + encodeURIComponent(tc));
+                const response = await fetch("https://script.google.com/macros/s/AKfycbxbj2hDk4hv6MBmiSvuCQfiryYAc2WfTP1UghD68XEyRrE2y4VxvTS4cXWPbCC5Ypna3g/exec?tc=" + encodeURIComponent(tc));
                 const result = await response.json();
                 loadingDiv.style.display = "none";
 
@@ -73,9 +73,8 @@
                         html += `
                             <div class="deneme-container">
                                 <div class="deneme-baslik">📝 Deneme ${deneme.denemeNo}</div>
-                                <div class="deneme-baslik">İsim: ${deneme.isim}</div>
+                                <div class="deneme-baslik">isim: ${deneme.isim}</div>
                                 <div class="info-box">
-                                    <p> İsim: ${deneme.info.isim}</p>
                                     <p>📈 Puan: ${deneme.info.puan}</p>
                                     <p>🏫 Sınıf: ${deneme.info.sinif}</p>
                                     <p>🏢 Okul: ${deneme.info.okul}</p>
