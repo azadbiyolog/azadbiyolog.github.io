@@ -3,38 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <title>Hakkari Fen Lisesi 10/B Sınıfı Deneme Sonuçları</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px; }
-        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
-        .search-box { display: flex; gap: 10px; margin-bottom: 20px; }
-        input { flex: 1; padding: 12px; border: 2px solid #3498db; border-radius: 8px; }
-        button { padding: 12px 25px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; }
-        .deneme-container { margin: 25px 0; padding: 15px; border: 1px solid #ddd; border-radius: 8px; }
-        .deneme-baslik { color: #2c3e50; font-size: 20px; margin-bottom: 15px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        th, td { padding: 12px; border: 1px solid #ddd; text-align: center; }
-        th { background: #3498db; color: white; }
-        .error { color: #e74c3c; padding: 15px; text-align: center; }
-        .info-box { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
-        .loading { text-align: center; margin-top: 20px; font-size: 18px; color: #3498db; }
-        .spinner {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-            border-top-color: #3498db;
-            animation: spin 1s linear infinite;
-            
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #e0ecff, #f8f9fa 80%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 35px 25px;
+            border-radius: 20px;
+            box-shadow: 0 6px 32px rgba(52,152,219,0.07), 0 1.5px 4px rgba(52,152,219,0.10);
+            margin-top: 30px;
+        }
+        h1 {
+            text-align: center;
+            color: #215187;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 24px;
+            justify-content: center;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 14px;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            font-size: 17px;
+            outline: none;
+            transition: border .2s;
+            background: #f6fafd;
+        }
+        input[type="text"]:focus {
+            border-color: #215187;
+        }
+        button {
+            padding: 12px 32px;
+            background: linear-gradient(90deg, #3498db, #236bb0 80%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            cursor: pointer;
+            transition: background .2s, transform .1s;
+            box-shadow: 0 2px 10px rgba(52,152,219,0.10);
+        }
+        button:hover {
+            background: linear-gradient(90deg, #236bb0, #3498db 80%);
+            transform: translateY(-2px) scale(1.02);
+        }
+        .deneme-container {
+            margin: 28px 0;
+            padding: 20px 18px;
+            border-radius: 14px;
+            background: #fafdff;
+            box-shadow: 0 2px 15px rgba(52,152,219,0.09);
+            transition: box-shadow .2s;
+        }
+        .deneme-container:hover {
+            box-shadow: 0 6px 24px rgba(52,152,219,0.14);
+        }
+        .deneme-baslik {
+            color: #236bb0;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: .5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            font-size: 16px;
+        }
+        th {
+            background: #3498db;
+            color: white;
+            letter-spacing: .5px;
         }
         .tr-turkce    { background: #e8f1fc; }   /* Açık mavi */
         .tr-sosyal    { background: #f1f8e8; }   /* Açık yeşil */
         .tr-matematik { background: #fff5e5; }   /* Açık turuncu */
-        .tr-fen       { background: #fbeffb; }   /* Açık mor-pembe */
+        .tr-fen       { background: #fbeffb; }   /* Açık pembe-mor */
         .tr-genel     { background: #f4f6fa; }   /* Açık gri-mavi */
+        .info-box {
+            background: #f3f8ff;
+            padding: 13px 18px;
+            border-radius: 9px;
+            margin-bottom: 16px;
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .info-box p {
+            margin: 0;
+            font-size: 15px;
+            color: #215187;
+        }
+        .error {
+            color: #e74c3c;
+            padding: 18px;
+            text-align: center;
+            background: #fff3f2;
+            border-radius: 10px;
+            font-size: 17px;
+        }
+        .loading {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #3498db;
+        }
+        .spinner {
+            display: inline-block;
+            width: 44px;
+            height: 44px;
+            border: 4px solid rgba(52,152,219,0.12);
+            border-radius: 50%;
+            border-top-color: #3498db;
+            animation: spin 1s linear infinite;
+            margin-bottom: 8px;
+        }
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% { transform: rotate(0deg);}
+            100% { transform: rotate(360deg);}
+        }
+        @media (max-width: 600px) {
+            .container { padding: 16px 4vw; }
+            .search-box { flex-direction: column; }
+            button { width: 100%; }
+            .info-box { flex-direction: column; gap: 8px; }
+            th, td { font-size: 13px; padding: 8px;}
+            .deneme-baslik { font-size: 18px;}
         }
     </style>
 </head>
@@ -51,7 +164,6 @@
         </div>
         <div id="sonuc"></div>
     </div>
-
     <script>
         async function sonuclariGoster() {
             const tc = document.getElementById("tcInput").value.trim();
@@ -67,7 +179,7 @@
             }
 
             try {
-                const response = await fetch("https://script.google.com/macros/s/AKfycbxbj2hDk4hv6MBmiSvuCQfiryYAc2WfTP1UghD68XEyRrE2y4VxvTS4cXWPbCC5Ypna3g/exec?tc=" + encodeURIComponent(tc));
+                const response = await fetch("https://script.google.com/macros/s/AKfycbyuvAL_FDjkqDX5MQJ6T2gorqwTRPww6ChMOSK8v-X8vkkpanCgyDmu2UzlSWg1PDXQpQ/exec?tc=" + encodeURIComponent(tc));
                 const result = await response.json();
                 loadingDiv.style.display = "none";
 
@@ -78,22 +190,24 @@
                     result.data.slice().reverse().forEach(deneme => {
                         html += `
                             <div class="deneme-container">
-                                <div class="deneme-baslik">📝 Deneme ${deneme.denemeNo} <br>👤 İsim: ${deneme.info.isim}</div>                                
+                                <div class="deneme-baslik">
+                                  📝 Deneme ${deneme.denemeNo} <span style="font-size:15px;color:#215187;font-weight:400;">| 👤 ${deneme.info.isim}</span>
+                                </div>
                                 <div class="info-box">
-                                    <p>📈 Puan: ${deneme.info.puan}</p>
+                                    <p>📈 Puan: <b>${deneme.info.puan}</b></p>
                                     <p>🏫 Sınıf: ${deneme.info.sinif}</p>
                                     <p>🏢 Okul: ${deneme.info.okul}</p>
                                     <p>🌆 İlçe: ${deneme.info.ilce}</p>
                                     <p>🌍 Genel: ${deneme.info.genel}</p>
                                 </div>
-                                    <table>
-                                        <tr><th>Ders</th><th>Doğru</th><th>Yanlış</th><th>Boş</th></tr>
-                                        <tr class="tr-turkce"><td>Türkçe</td><td>${deneme.dersler.turkce[0]}</td><td>${deneme.dersler.turkce[1]}</td><td>${deneme.dersler.turkce[2]}</td></tr>
-                                        <tr class="tr-sosyal"><td>Sosyal</td><td>${deneme.dersler.sosyal[0]}</td><td>${deneme.dersler.sosyal[1]}</td><td>${deneme.dersler.sosyal[2]}</td></tr>
-                                        <tr class="tr-matematik"><td>Matematik</td><td>${deneme.dersler.matematik[0]}</td><td>${deneme.dersler.matematik[1]}</td><td>${deneme.dersler.matematik[2]}</td></tr>
-                                        <tr class="tr-fen"><td>Fen</td><td>${deneme.dersler.fen[0]}</td><td>${deneme.dersler.fen[1]}</td><td>${deneme.dersler.fen[2]}</td></tr>
-                                        <tr class="tr-genel"><td>Genel</td><td>${deneme.dersler.genel[0]}</td><td>${deneme.dersler.genel[1]}</td><td>${deneme.dersler.genel[2]}</td></tr>
-                                    </table>
+                                <table>
+                                    <tr><th>Ders</th><th>Doğru</th><th>Yanlış</th><th>Boş</th></tr>
+                                    <tr class="tr-turkce"><td>Türkçe</td><td>${deneme.dersler.turkce[0]}</td><td>${deneme.dersler.turkce[1]}</td><td>${deneme.dersler.turkce[2]}</td></tr>
+                                    <tr class="tr-sosyal"><td>Sosyal</td><td>${deneme.dersler.sosyal[0]}</td><td>${deneme.dersler.sosyal[1]}</td><td>${deneme.dersler.sosyal[2]}</td></tr>
+                                    <tr class="tr-matematik"><td>Matematik</td><td>${deneme.dersler.matematik[0]}</td><td>${deneme.dersler.matematik[1]}</td><td>${deneme.dersler.matematik[2]}</td></tr>
+                                    <tr class="tr-fen"><td>Fen</td><td>${deneme.dersler.fen[0]}</td><td>${deneme.dersler.fen[1]}</td><td>${deneme.dersler.fen[2]}</td></tr>
+                                    <tr class="tr-genel"><td>Genel</td><td>${deneme.dersler.genel[0]}</td><td>${deneme.dersler.genel[1]}</td><td>${deneme.dersler.genel[2]}</td></tr>
+                                </table>
                             </div>
                         `;
                     });
