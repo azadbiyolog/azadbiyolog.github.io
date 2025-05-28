@@ -72,8 +72,7 @@
                     result.data.slice().reverse().forEach(deneme => {
                         html += `
                             <div class="deneme-container">
-                                <div class="deneme-baslik">📝 Deneme ${deneme.denemeNo}</div>
-                                <div class="deneme-baslik">isim: ${deneme.isim}</div>
+                                <div class="deneme-baslik">📝 Deneme ${deneme.denemeNo} <br>👤 İsim: ${deneme.info.isim}</div>                                
                                 <div class="info-box">
                                     <p>📈 Puan: ${deneme.info.puan}</p>
                                     <p>🏫 Sınıf: ${deneme.info.sinif}</p>
