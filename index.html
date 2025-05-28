@@ -69,7 +69,7 @@
                     sonucDiv.innerHTML = `<div class="error">⚠️ ${result.error}</div>`;
                 } else if (result.data && result.data.length > 0) {
                     let html = "";
-                    result.data.forEach(deneme => {
+                    result.data.slice().reverse().forEach(deneme => {
                         html += `
                             <div class="deneme-container">
                                 <div class="deneme-baslik">📝 Deneme ${deneme.denemeNo}</div>
