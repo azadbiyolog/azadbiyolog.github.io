@@ -214,7 +214,8 @@ _<!DOCTYPE html>
                         html += `
                             <div class="deneme-container">
                                 <div class="deneme-baslik">📝 Deneme ${deneme.denemeNo} - ${deneme.info.isim}</div>
-                                <div class="info-box" style="color: #e67e22;">Sayısal Sıralaması>
+                                <div class="info-box">
+                                <div class="info-title" style="color: #e67e22;">Sayısal sıralaması</div>
                                     <p>Sayısal 📈 Puan: <b>${deneme.info.puan}</b></p>
                                     <p>🏫 Sınıf: ${deneme.info.sinif}</p>
                                     <p>🏢 Okul: ${deneme.info.okul}</p>
@@ -225,7 +226,7 @@ _<!DOCTYPE html>
 
                             <div class="info-sub-box" style="background-color: #fff9f0;">
                     <div class="info-title" style="color: #e67e22;">Eşit Ağırlık Sıralaması</div>
-                    <p>📈 Puan: <b>${deneme.info.epuan}</b></p>
+                    <p>📈 Puan: <b>${deneme.eaInfo.puan}</b></p>
                     <p>🏫 Sınıf: ${deneme.eaInfo.sinif} </b></p>
                     <p>🏢 Okul: ${deneme.eaInfo.okul}</p>
                     <p>🌍 Genel: ${deneme.eaInfo.genel}</p>
