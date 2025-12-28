@@ -201,7 +201,7 @@ _<!DOCTYPE html>
             }
 
             try {
-                const response = await fetch("https://script.google.com/macros/s/AKfycbwxgUum38vm3h4Ef_LwoxjcROQDo0n_mVVTlPp3ctTelDQe_aL7KtzP0MKJKURdLJY6gQ/exec?tc=" + encodeURIComponent(tc));
+                const response = await fetch("https://script.google.com/macros/s/AKfycbxNFsk_22QUVk0GOXmbt4PevCDTy_PRcuZxO3Q2akGml6OADY6JneB1Ox1fTuRG5Ki4dQ/exec?tc=" + encodeURIComponent(tc));
             
                 const result = await response.json();
                 loadingDiv.style.display = "none";
@@ -227,19 +227,9 @@ _<!DOCTYPE html>
                                     <p>📈 Puan: <b>${deneme.eaInfo.puan}</b></p>
                                     <p>🏫 Sınıf: ${deneme.eaInfo.sinif}</p>
                                     <p>🏢 Okul: ${deneme.eaInfo.okul}</p>
-                                    <p>🌆 İlçe: ${deneme.eaInfo.ilce}</p>
                                     <p>🌍 Genel: ${deneme.eaInfo.genel}</p>    
                                 </div>
-                                
-
-                            <div class="info-sub-box" style="background-color: #fff9f0;">
-                                <div class="info-title" style="color: #e67e22;">Eşit Ağırlık Sıralaması</div>
-                                <p>📈 Puan: <b>${deneme.eaInfo.puan}</b></p>
-                                <p>🏫 Sınıf: ${deneme.eaInfo.sinif} </p>
-                                <p>🏢 Okul: ${deneme.eaInfo.okul}</p>
-                                <p>🌍 Genel: ${deneme.eaInfo.genel}</p>
-                            </div>
-                                </div>
+                            
                                 <table>
                                     <tr><th>Ders</th><th>Doğru</th><th>Yanlış</th><th>Net</th></tr>
                                     <tr class="tr-turkce"><td>Türkçe/Edebiyat</td><td>${deneme.dersler.turkce[0]}</td><td>${deneme.dersler.turkce[1]}</td><td>${deneme.dersler.turkce[2]}</td></tr>
