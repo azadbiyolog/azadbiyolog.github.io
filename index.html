@@ -192,12 +192,21 @@
                             <div class="deneme-container">
                                 <div class="deneme-baslik">📝 Deneme ${deneme.denemeNo} - ${deneme.info.isim}</div>
                                 <div class="info-box">
+                                    <p>Sayısal 📈 Puan: <b>${deneme.info.puan}</b></p>
+                                    <p>🏫 Sınıf: ${deneme.info.sinif}</p>
+                                    <p>🏢 Okul: ${deneme.info.okul}</p>
+                                    <p>🌆 İlçe: ${deneme.info.ilce}</p>
+                                    <p>🌍 Genel: ${deneme.info.genel}</p>
+                                </div>
+                                //son eklenen 
+                                <div class="info-box">
                                     <p>📈 Puan: <b>${deneme.info.puan}</b></p>
                                     <p>🏫 Sınıf: ${deneme.info.sinif}</p>
                                     <p>🏢 Okul: ${deneme.info.okul}</p>
                                     <p>🌆 İlçe: ${deneme.info.ilce}</p>
                                     <p>🌍 Genel: ${deneme.info.genel}</p>
                                 </div>
+                                //son eklenen
                                 <table>
                                     <tr><th>Ders</th><th>Doğru</th><th>Yanlış</th><th>Net</th></tr>
                                     <tr class="tr-turkce"><td>Türkçe/Edebiyat</td><td>${deneme.dersler.turkce[0]}</td><td>${deneme.dersler.turkce[1]}</td><td>${deneme.dersler.turkce[2]}</td></tr>
