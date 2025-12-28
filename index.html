@@ -179,7 +179,7 @@ _<!DOCTYPE html>
             }
 
             try {
-                const response = await fetch("https://script.google.com/macros/s/AKfycbxbj2hDk4hv6MBmiSvuCQfiryYAc2WfTP1UghD68XEyRrE2y4VxvTS4cXWPbCC5Ypna3g/exec?tc=" + encodeURIComponent(tc));
+                const response = await fetch("https://script.google.com/macros/s/AKfycbx5xxklmsgwDvoSw0O0Oew-wa71moQTX2tGPxauyzZVmQgG692t2xnUCewfyf2qZPZjgQ/exec?tc=" + encodeURIComponent(tc));
             
                 const result = await response.json();
                 loadingDiv.style.display = "none";
@@ -198,14 +198,14 @@ _<!DOCTYPE html>
                                     <p>🏢 Okul: ${deneme.info.okul}</p>
                                     <p>🌆 İlçe: ${deneme.info.ilce}</p>
                                     <p>🌍 Genel: ${deneme.info.genel}</p>
-                                    <p>📈 Puan: <b>${deneme.info.e_puan}</b></p>
+                                    <p>📈 Puan: <b>${deneme.info.epuan}</b></p>
                                 </div>
                                 //son eklenen 
                                 <div class="info-box">
-                                    <p>📈 Puan: <b>${deneme.info.e_puan}</b></p>
-                                    <p>🏫 Sınıf: ${deneme.info.e_sinif}</p>
-                                    <p>🏢 Okul: ${deneme.info.e_okul}</p>
-                                    <p>🌍 Genel: ${deneme.info.e_genel}</p>
+                                    <p>📈 Puan: <b>${deneme.info.epuan}</b></p>
+                                    <p>🏫 Sınıf: ${deneme.info.esinif}</p>
+                                    <p>🏢 Okul: ${deneme.info.eokul}</p>
+                                    <p>🌍 Genel: ${deneme.info.egenel}</p>
                                 </div>
                                 //son eklenen
                                 <table>
