@@ -149,6 +149,28 @@ _<!DOCTYPE html>
             th, td { font-size: 13px; padding: 8px;}
             .deneme-baslik { font-size: 18px;}
         }
+
+        .info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+.info-sub-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 10px;
+    border-radius: 8px;
+    flex: 1;
+}
+.info-title {
+    font-weight: bold;
+    color: #236bb0;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+        
     </style>
 </head>
 <body>
@@ -200,15 +222,15 @@ _<!DOCTYPE html>
                                     <p>🌍 Genel: ${deneme.info.genel}</p>
                                     <p>📈 Puan: <b>${deneme.info.epuan}</b></p>
                                 </div>
-                                //son eklenen 
-                                <div class="info-box">
-                                    <h3>🔴 Eşit Ağırlık Denemesi</h3>
-                                    <p>📈 Puan: <b>${deneme.info.epuan}</b></p>
-                                    <p>🏫 Sınıf Sıralaması: ${deneme.info.esinif}</p>
-                                    <p>🏢 Okul Sıralaması: ${deneme.info.eokul}</p>
-                                    <p>🌍 Genel Sıralama: ${deneme.info.egenel}</p>
+
+                                <div class="info-sub-box" style="background-color: #fff9f0;">
+                                    <div class="info-title" style="color: #e67e22;">Eşit Ağırlık Sıralama</div>
+                                    <p>📈 Puan: <b>${deneme.eaInfo.puan}</b></p>
+                                    <p>🏫 Sınıf: ${deneme.eaInfo.sinif} | 🏢 Okul: ${deneme.eaInfo.okul}</p>
+                                    <p>🌍 Genel: ${deneme.eaInfo.genel}</p>
                                 </div>
-                                //son eklenen
+
+                                
                                 <table>
                                     <tr><th>Ders</th><th>Doğru</th><th>Yanlış</th><th>Net</th></tr>
                                     <tr class="tr-turkce"><td>Türkçe/Edebiyat</td><td>${deneme.dersler.turkce[0]}</td><td>${deneme.dersler.turkce[1]}</td><td>${deneme.dersler.turkce[2]}</td></tr>
